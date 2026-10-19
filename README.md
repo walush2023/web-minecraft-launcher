@@ -116,7 +116,7 @@ owns Minecraft: Java Edition, and an internet connection (CheerpJ and the game f
 Windows (PowerShell):
 
 ```powershell
-git clone <this repository's URL> web-minecraft-launcher
+git clone https://github.com/walush2023/web-minecraft-launcher.git web-minecraft-launcher
 cd web-minecraft-launcher
 npm install
 Copy-Item .env.example .env   # then edit .env and set AZURE_CLIENT_ID
@@ -126,7 +126,7 @@ npm start
 Linux / macOS (bash):
 
 ```bash
-git clone <this repository's URL> web-minecraft-launcher
+git clone https://github.com/walush2023/web-minecraft-launcher.git web-minecraft-launcher
 cd web-minecraft-launcher
 npm install
 cp .env.example .env          # then edit .env and set AZURE_CLIENT_ID

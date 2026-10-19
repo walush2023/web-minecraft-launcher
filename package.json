@@ -17,5 +17,9 @@
   "dependencies": {
     "express": "^5.1.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walush2023/web-minecraft-launcher.git"
+  }
 }
