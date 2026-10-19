@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Logging config for the browser JVM (passed via -Dlog4j.configurationFile).
+  * Console only: vanilla's rolling log file would write and gzip into IndexedDB, costing frames.
+  * The first RegexFilter drops messages containing ${...} lookups (Mojang's Log4Shell
+    mitigation, also effective on the log4j 2.0-beta9 bundled with 1.7 - 1.11).
+  * The second drops per-sound warnings: there is no audio backend in the browser (and no
+    sound assets are served), and logging every footstep or sound event costs frames.
+-->
+<Configuration status="WARN">
+  <Appenders>
+    <Console name="SysOut" target="SYSTEM_OUT">
+      <PatternLayout pattern="[%d{HH:mm:ss}] [%t/%level]: %msg%n" />
+    </Console>
+  </Appenders>
+  <Loggers>
+    <Root level="info">
+      <filters>
+        <RegexFilter regex="(?s).*\$\{[^}]*\}.*" onMatch="DENY" onMismatch="NEUTRAL" />
+        <RegexFilter regex="(Unable to play (unknown )?sound|Missing sound for event).*" onMatch="DENY" onMismatch="NEUTRAL" />
+      </filters>
+      <AppenderRef ref="SysOut" />
+    </Root>
+  </Loggers>
+</Configuration>

@@ -1,0 +1,21 @@
+{
+  "name": "web-minecraft",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Unofficial browser launcher for Minecraft: Java Edition (CheerpJ). Requires your own licensed account; contains no Minecraft files.",
+  "type": "module",
+  "main": "server/index.js",
+  "engines": {
+    "node": ">=20.12"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test \"test/*.test.js\"",
+    "build:java": "node scripts/build-java.mjs"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "license": "MIT"
+}

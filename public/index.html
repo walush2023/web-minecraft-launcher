@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minecraft 網頁版啟動器</title>
+  <meta name="description" content="使用 Microsoft 帳號登入，在瀏覽器中遊玩正版 Minecraft: Java 版。" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <main class="launcher">
+    <header class="topbar">
+      <div class="brand">MINECRAFT <span>網頁版啟動器</span></div>
+      <div id="account-top"></div>
+    </header>
+
+    <div id="notices" class="stack"></div>
+
+    <div class="grid" style="margin-top: 20px">
+      <div>
+        <section class="panel" aria-labelledby="account-title">
+          <h2 id="account-title">帳號</h2>
+          <div id="account" class="stack">
+            <p class="muted">讀取中…</p>
+          </div>
+        </section>
+
+        <section class="panel stack" aria-labelledby="perf-title">
+          <h2 id="perf-title">效能</h2>
+          <div>
+            <div class="row"><label>畫質預設</label><small class="muted" id="preset-hint"></small></div>
+            <div class="presets" id="presets" role="group" aria-label="畫質預設"></div>
+          </div>
+          <div>
+            <div class="row">
+              <label for="render-scale">渲染解析度</label>
+              <span class="mono" id="render-scale-value"></span>
+            </div>
+            <input type="range" id="render-scale" min="0.4" max="1" step="0.05" />
+            <small class="muted">降低解析度後以 GPU 放大顯示，能大幅提升 FPS。</small>
+          </div>
+        </section>
+      </div>
+
+      <div>
+        <section class="panel" aria-labelledby="versions-title">
+          <h2 id="versions-title">選擇版本</h2>
+          <div class="filters">
+            <label><input type="checkbox" id="filter-snapshots" /> 快照版</label>
+            <label><input type="checkbox" id="filter-old" /> 舊版 Alpha / Beta</label>
+            <label><input type="checkbox" id="filter-unsupported" /> 顯示無法執行的版本</label>
+          </div>
+          <input type="text" id="search" class="search" placeholder="搜尋版本，例如 1.8.9" autocomplete="off" />
+          <div class="versions" id="versions" role="listbox" aria-label="Minecraft 版本">
+            <div class="empty">讀取 Mojang 版本清單…</div>
+          </div>
+        </section>
+
+        <section class="panel stack" aria-label="啟動">
+          <div class="selected-version">
+            <div>
+              <div class="muted" style="font-size: 0.85rem">已選擇版本</div>
+              <strong id="selected-id">—</strong>
+            </div>
+            <span id="selected-badge"></span>
+          </div>
+          <p class="muted" id="selected-note" style="margin: 0"></p>
+          <label style="display: flex; gap: 8px; align-items: flex-start">
+            <input type="checkbox" id="eula" style="margin-top: 4px" />
+            <span>我同意 <a href="https://www.minecraft.net/eula" target="_blank" rel="noopener">Minecraft 終端使用者授權合約 (EULA)</a></span>
+          </label>
+          <button class="btn btn-primary btn-play" id="play" type="button" disabled>開始遊戲</button>
+          <p class="muted" id="play-hint" style="margin: 0; font-size: 0.85rem"></p>
+        </section>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>非 Minecraft 官方產品，與 Mojang Studios 及 Microsoft 無關。遊戲檔案於登入並確認擁有權後，由 Mojang 官方伺服器下載並以 SHA-1 驗證，檔案本身不做任何修改；為相容瀏覽器，部分版本會在記憶體中套用最小修正。</p>
+      <p>Java 執行環境：<a href="https://cheerpj.com" target="_blank" rel="noopener">CheerpJ</a>（WebAssembly JVM）· LWJGL WebAssembly 版本來自 <a href="https://github.com/leaningtech/browsercraft" target="_blank" rel="noopener">leaningtech/browsercraft</a></p>
+    </footer>
+  </main>
+  <script type="module" src="/js/launcher.js"></script>
+</body>
+</html>

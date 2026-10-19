@@ -1,0 +1,23 @@
+node_modules/
+data/
+.env
+java/build/
+*.log
+java/lib/
+
+# Local CheerpJ experiments
+public/_probe*/
+
+# Never commit Minecraft files or personal data
+.minecraft/
+saves/
+*.mca
+client.jar
+server.jar
+*.jar.sha1
+!public/webmc-launcher.jar
+!public/lwjgl/*.jar
+data/
+.env
+.env.*
+!.env.example

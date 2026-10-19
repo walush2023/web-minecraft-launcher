@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Minecraft 網頁版 — 遊戲中</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body class="play">
+  <div id="stage" class="stage">
+    <div id="viewport" class="viewport"></div>
+  </div>
+
+  <div id="hud" class="hud" hidden>
+    <a class="hud-btn" href="/" id="hud-back" title="回到啟動器">⟵ 啟動器</a>
+    <span class="hud-version" id="hud-version"></span>
+    <button class="hud-btn" id="hud-log" type="button" title="顯示 / 隱藏 Java 主控台">主控台</button>
+    <button class="hud-btn" id="hud-fullscreen" type="button" title="全螢幕">全螢幕</button>
+  </div>
+
+  <div id="overlay" class="overlay">
+    <div class="panel overlay-panel">
+      <div class="brand small">MINECRAFT <span>網頁版</span></div>
+      <h2 id="status">準備中…</h2>
+      <p id="detail" class="muted"></p>
+      <div class="progress" id="progress" hidden><div class="progress-bar" id="progress-bar"></div></div>
+      <p id="progress-text" class="muted mono"></p>
+      <div class="overlay-actions" id="overlay-actions" hidden>
+        <a class="btn" href="/">回到啟動器</a>
+        <button class="btn btn-primary" id="restart" type="button">重新啟動</button>
+      </div>
+      <details class="overlay-log" id="overlay-log" hidden>
+        <summary>Java 主控台輸出</summary>
+        <pre id="overlay-log-text"></pre>
+      </details>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+
+  <aside id="java-console" class="console" hidden>
+    <header><strong>Java 主控台</strong><button type="button" id="java-console-close" class="hud-btn">關閉</button></header>
+    <pre id="java-console-text"></pre>
+  </aside>
+
+  <script type="module" src="/js/play.js"></script>
+</body>
+</html>
